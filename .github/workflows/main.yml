@@ -25,6 +25,16 @@ jobs:
 
       - name: Compare Directory Names
         run: |
+          echo "Contents of repoA:"
+          ls -la repoA
+          echo "Contents of repoA/src/components:"
+          ls -la repoA/src/components
+          
+          echo "Contents of repoB:"
+          ls -la repoB
+          echo "Contents of repoB/src/components:"
+          ls -la repoB/src/components
+
           # List directories in src/components of both repositories
           DIRS_A=$(ls repoA/src/components)
           DIRS_B=$(ls repoB/src/components)
