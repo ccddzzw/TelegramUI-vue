@@ -25,22 +25,21 @@ jobs:
 
       - name: Compare Directory Names
         run: |
-          echo "Contents of repoA:"
-          ls -la repoA
           echo "Contents of repoA/src/components:"
           ls -la repoA/src/components
           
-          echo "Contents of repoB:"
-          ls -la repoB
           echo "Contents of repoB/src/components:"
           ls -la repoB/src/components
 
-          # List directories in src/components of both repositories
-          DIRS_A=$(ls repoA/src/components)
-          DIRS_B=$(ls repoB/src/components)
+          # List all files and directories recursively in src/components
+          DIRS_A=$(find repoA/src/components -type f -printf "%P\n")
+          DIRS_B=$(find repoB/src/components -type f -printf "%P\n")
 
-          # Find directories in repoA/src/components that are not in repoB/src/components
+          # Find files in repoA/src/components that are not in repoB/src/components
           DIFF_DIRS=$(comm -13 <(echo "$DIRS_A" | sort) <(echo "$DIRS_B" | sort))
+
+          echo "Files missing in repoB/src/components:"
+          echo "$DIFF_DIRS"
 
           # Check if there are differences and update README.md if so
           if [ -n "$DIFF_DIRS" ]; then
