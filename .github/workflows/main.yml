@@ -29,15 +29,14 @@ jobs:
 
       - name: Compare Directory Names
         run: |
-          echo "Contents of repoA/src/components:"
-          ls -la repoA/src/components
-          
-          echo "Contents of repoB/src/components:"
-          ls -la repoB/src/components
-
           # List only directories recursively in src/components
           DIRS_A=$(find repoA/src/components -type d -not -path "repoA/src/components" -printf "%P\n")
+          echo "Directories in repoA/src/components:"
+          echo "$DIRS_A"
+
           DIRS_B=$(find repoB/src/components -type d -not -path "repoB/src/components" -printf "%P\n")
+          echo "Directories in repoB/src/components:"
+          echo "$DIRS_B"
 
           # Find directories in repoA/src/components that are not in repoB/src/components
           DIFF_DIRS=$(comm -13 <(echo "$DIRS_A" | sort) <(echo "$DIRS_B" | sort))
@@ -65,6 +64,6 @@ jobs:
       - name: Push Changes
         working-directory: repoB  # Set working directory
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TownSquareXYZ/TelegramUI-vue.git
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ccddzzw/TelegramUI-vue.git
           git push origin HEAD:main
 
