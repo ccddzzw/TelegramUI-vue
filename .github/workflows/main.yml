@@ -14,13 +14,13 @@ jobs:
       - name: Checkout Repository A
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/Telegram-Mini-Apps/TelegramUI.git
+          repository: Telegram-Mini-Apps/TelegramUI  # Fixed repository format
           path: repoA
 
       - name: Checkout Repository B
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/TownSquareXYZ/TelegramUI-vue.git
+          repository: TownSquareXYZ/TelegramUI-vue  # Fixed repository format
           path: repoB
 
       - name: Compare Directory Names
