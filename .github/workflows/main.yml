@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs every Monday at 00:00 UTC
     - cron: '0 0 * * MON'
+  workflow_dispatch:  # Add this to enable manual triggers
 
 jobs:
   compare:
