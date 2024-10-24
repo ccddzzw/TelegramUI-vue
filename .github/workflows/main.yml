@@ -1,0 +1,54 @@
+name: Compare Repositories
+
+on:
+  schedule:
+    # Runs every Monday at 00:00 UTC
+    - cron: '0 0 * * MON'
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository A
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/Telegram-Mini-Apps/TelegramUI
+          path: repoA
+
+      - name: Checkout Repository B
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/TownSquareXYZ/TelegramUI-vue/tree/main
+          path: repoB
+
+      - name: Compare Directory Names
+        run: |
+          # List directories in src/components of both repositories
+          DIRS_A=$(ls repoA/src/components)
+          DIRS_B=$(ls repoB/src/components)
+
+          # Find directories in repoA/src/components that are not in repoB/src/components
+          DIFF_DIRS=$(comm -13 <(echo "$DIRS_A" | sort) <(echo "$DIRS_B" | sort))
+
+          # Check if there are differences and update README.md if so
+          if [ -n "$DIFF_DIRS" ]; then
+            echo "Differences found:" > repoB/README.md
+            echo "$DIFF_DIRS" >> repoB/README.md
+            echo "Updated README.md with differences."
+          else
+            echo "No differences found."
+          fi
+
+      - name: Commit Changes
+        run: |
+          cd repoB
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add README.md
+          git commit -m "Update README.md with differences from repoA" || echo "No changes to commit"
+
+      - name: Push Changes
+        run: |
+          git push origin main  # Change to your main branch if needed
+
