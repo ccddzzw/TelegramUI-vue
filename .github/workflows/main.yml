@@ -20,7 +20,7 @@ jobs:
       - name: Checkout Repository B
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/TownSquareXYZ/TelegramUI-vue/tree/main
+          repository: https://github.com/TownSquareXYZ/TelegramUI-vue
           path: repoB
 
       - name: Compare Directory Names
