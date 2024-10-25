@@ -39,25 +39,25 @@ jobs:
           echo "Components with stories in repoB:"
           echo "$componentsB"
 
-          # Find components that have stories in repoA but not in repoB
-          componentsC=$(comm -23 <(echo "$componentsA") <(echo "$componentsB"))
-          echo "Components missing stories in repoB:"
-          echo "$componentsC"
-
-          # Update README.md with both directory and story differences
-          if [ -n "$componentsC" ]; then
-            {
-              echo "# Differences Report"
-              echo
-              if [ -n "$componentsC" ]; then
-                echo "## Components Missing Stories in repoB:"
-                echo "$componentsC"
+          # Create README.md with table format
+          {
+            echo "# Components Implementation Status"
+            echo
+            echo "| Component | React | Vue |"
+            echo "|-----------|--------|-----|"
+            
+            # Loop through all components in repoA
+            echo "$componentsA" | while read -r component; do
+              if [ -n "$component" ]; then
+                # Check if component exists in repoB
+                if echo "$componentsB" | grep -q "^${component}$"; then
+                  echo "| $component | Y | Y |"
+                else
+                  echo "| $component | Y | N |"
+                fi
               fi
-            } > repoB/README.md
-            echo "Updated README.md with differences."
-          else
-            echo "No differences found."
-          fi
+            done
+          } > repoB/README.md
 
       - name: Commit Changes
         run: |
