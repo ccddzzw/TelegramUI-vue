@@ -43,16 +43,22 @@ jobs:
           {
             echo "# Components Implementation Status"
             echo
-            echo "| Component | React | Vue |"
-            echo "|-----------|--------|-----|"
+            echo "| Component | React Version | Vue Version |"
+            echo "|-----------|---------------|-------------|"
             
-            # Loop through all components in repoA
+            # First output components that exist in both repos (Vue Version = Y)
             echo "$componentsA" | while read -r component; do
               if [ -n "$component" ]; then
-                # Check if component exists in repoB
                 if echo "$componentsB" | grep -q "^${component}$"; then
                   echo "| $component | Y | Y |"
-                else
+                fi
+              fi
+            done
+
+            # Then output components that only exist in repoA (Vue Version = N)
+            echo "$componentsA" | while read -r component; do
+              if [ -n "$component" ]; then
+                if ! echo "$componentsB" | grep -q "^${component}$"; then
                   echo "| $component | Y | N |"
                 fi
               fi
