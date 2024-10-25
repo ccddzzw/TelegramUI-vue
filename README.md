@@ -1,62 +1,74 @@
-# Differences Report
+# Components Implementation Status
 
-## Components Missing Stories in repoB:
-Accordion
-AccordionContent
-AccordionSummary
-Avatar
-AvatarStack
-Banner
-Blockquote
-Breadcrumbs
-ButtonCell
-Card
-Cell
-Checkbox
-Chip
-ColorInput
-CompactPagination
-CompactPaginationItem
-Divider
-FileInput
-FixedLayout
-Headline
-Image
-Info
-InlineButtons
-InlineButtonsItem
-Input
-LargeTitle
-List
-Modal
-ModalClose
-ModalHeader
-Multiselect
-Multiselectable
-Navigation
-Pagination
-PinInput
-Popper
-Progress
-Radio
-Rating
-Section
-SectionFooter
-SectionHeader
-SegmentedControl
-SegmentedControlItem
-Select
-Selectable
-Skeleton
-Slider
-Snackbar
-Spoiler
-Steps
-Tabbar
-TabbarItem
-TabsItem
-TabsList
-Textarea
-Timeline
-TimelineItem
-Tooltip
+| Component | React | Vue |
+|-----------|--------|-----|
+| Accordion | Y | N |
+| AccordionContent | Y | N |
+| AccordionSummary | Y | N |
+| Avatar | Y | N |
+| AvatarStack | Y | N |
+| Badge | Y | Y |
+| Banner | Y | N |
+| Blockquote | Y | N |
+| Breadcrumbs | Y | N |
+| Button | Y | Y |
+| ButtonCell | Y | N |
+| Caption | Y | Y |
+| Card | Y | N |
+| Cell | Y | N |
+| Checkbox | Y | N |
+| Chip | Y | N |
+| CircularProgress | Y | Y |
+| ColorInput | Y | N |
+| CompactPagination | Y | N |
+| CompactPaginationItem | Y | N |
+| Divider | Y | N |
+| FileInput | Y | N |
+| FixedLayout | Y | N |
+| Headline | Y | N |
+| IconButton | Y | Y |
+| Image | Y | N |
+| Info | Y | N |
+| InlineButtons | Y | N |
+| InlineButtonsItem | Y | N |
+| Input | Y | N |
+| LargeTitle | Y | N |
+| List | Y | N |
+| Modal | Y | N |
+| ModalClose | Y | N |
+| ModalHeader | Y | N |
+| Multiselect | Y | N |
+| Multiselectable | Y | N |
+| Navigation | Y | N |
+| Pagination | Y | N |
+| PinInput | Y | N |
+| Placeholder | Y | Y |
+| Popper | Y | N |
+| Progress | Y | N |
+| Radio | Y | N |
+| Rating | Y | N |
+| Section | Y | N |
+| SectionFooter | Y | N |
+| SectionHeader | Y | N |
+| SegmentedControl | Y | N |
+| SegmentedControlItem | Y | N |
+| Select | Y | N |
+| Selectable | Y | N |
+| Skeleton | Y | N |
+| Slider | Y | N |
+| Snackbar | Y | N |
+| Spinner | Y | Y |
+| Spoiler | Y | N |
+| Steps | Y | N |
+| Subheadline | Y | Y |
+| Switch | Y | Y |
+| Tabbar | Y | N |
+| TabbarItem | Y | N |
+| TabsItem | Y | N |
+| TabsList | Y | N |
+| Text | Y | Y |
+| Textarea | Y | N |
+| Timeline | Y | N |
+| TimelineItem | Y | N |
+| Title | Y | Y |
+| Tooltip | Y | N |
