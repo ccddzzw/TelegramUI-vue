@@ -29,25 +29,31 @@ jobs:
 
       - name: Compare Directory Names
         run: |
-          # List only directories recursively in src/components
-          DIRS_A=$(find repoA/src/components -type d -not -path "repoA/src/components" -printf "%P\n")
-          echo "Directories in repoA/src/components:"
-          echo "$DIRS_A"
+          # Find all stories files in repoA
+          componentsA=$(find repoA/src/components -type f -name "*.stories.*" | sed 's|.*/\([^/]*\)/[^/]*\.stories\..*|\1|' | sort -u)
+          echo "Components with stories in repoA:"
+          echo "$componentsA"
 
-          DIRS_B=$(find repoB/src/components -type d -not -path "repoB/src/components" -printf "%P\n")
-          echo "Directories in repoB/src/components:"
-          echo "$DIRS_B"
+          # Find all stories files in repoB
+          componentsB=$(find repoB/src/components -type f -name "*.stories.*" | sed 's|.*/\([^/]*\)/[^/]*\.stories\..*|\1|' | sort -u)
+          echo "Components with stories in repoB:"
+          echo "$componentsB"
 
-          # Find directories in repoA/src/components that are not in repoB/src/components
-          DIFF_DIRS=$(comm -13 <(echo "$DIRS_A" | sort) <(echo "$DIRS_B" | sort))
+          # Find components that have stories in repoA but not in repoB
+          componentsC=$(comm -23 <(echo "$componentsA") <(echo "$componentsB"))
+          echo "Components missing stories in repoB:"
+          echo "$componentsC"
 
-          echo "Directories missing in repoB/src/components:"
-          echo "$DIFF_DIRS"
-
-          # Check if there are differences and update README.md if so
-          if [ -n "$DIFF_DIRS" ]; then
-            echo "Differences found:" > repoB/README.md
-            echo "$DIFF_DIRS" >> repoB/README.md
+          # Update README.md with both directory and story differences
+          if [ -n "$componentsC" ]; then
+            {
+              echo "# Differences Report"
+              echo
+              if [ -n "$componentsC" ]; then
+                echo "## Components Missing Stories in repoB:"
+                echo "$componentsC"
+              fi
+            } > repoB/README.md
             echo "Updated README.md with differences."
           else
             echo "No differences found."
