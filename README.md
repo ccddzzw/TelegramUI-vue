@@ -1,24 +1,31 @@
 # Components Implementation Status
 
-| Component | React | Vue |
-|-----------|--------|-----|
+| Component | React Version | Vue Version |
+|-----------|---------------|-------------|
+| Badge | Y | Y |
+| Button | Y | Y |
+| Caption | Y | Y |
+| CircularProgress | Y | Y |
+| IconButton | Y | Y |
+| Placeholder | Y | Y |
+| Spinner | Y | Y |
+| Subheadline | Y | Y |
+| Switch | Y | Y |
+| Text | Y | Y |
+| Title | Y | Y |
 | Accordion | Y | N |
 | AccordionContent | Y | N |
 | AccordionSummary | Y | N |
 | Avatar | Y | N |
 | AvatarStack | Y | N |
-| Badge | Y | Y |
 | Banner | Y | N |
 | Blockquote | Y | N |
 | Breadcrumbs | Y | N |
-| Button | Y | Y |
 | ButtonCell | Y | N |
-| Caption | Y | Y |
 | Card | Y | N |
 | Cell | Y | N |
 | Checkbox | Y | N |
 | Chip | Y | N |
-| CircularProgress | Y | Y |
 | ColorInput | Y | N |
 | CompactPagination | Y | N |
 | CompactPaginationItem | Y | N |
@@ -26,7 +33,6 @@
 | FileInput | Y | N |
 | FixedLayout | Y | N |
 | Headline | Y | N |
-| IconButton | Y | Y |
 | Image | Y | N |
 | Info | Y | N |
 | InlineButtons | Y | N |
@@ -42,7 +48,6 @@
 | Navigation | Y | N |
 | Pagination | Y | N |
 | PinInput | Y | N |
-| Placeholder | Y | Y |
 | Popper | Y | N |
 | Progress | Y | N |
 | Radio | Y | N |
@@ -57,18 +62,13 @@
 | Skeleton | Y | N |
 | Slider | Y | N |
 | Snackbar | Y | N |
-| Spinner | Y | Y |
 | Spoiler | Y | N |
 | Steps | Y | N |
-| Subheadline | Y | Y |
-| Switch | Y | Y |
 | Tabbar | Y | N |
 | TabbarItem | Y | N |
 | TabsItem | Y | N |
 | TabsList | Y | N |
-| Text | Y | Y |
 | Textarea | Y | N |
 | Timeline | Y | N |
 | TimelineItem | Y | N |
-| Title | Y | Y |
 | Tooltip | Y | N |
