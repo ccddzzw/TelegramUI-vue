@@ -37,14 +37,14 @@ jobs:
           {
             echo "## Rate of progress"
             echo
-            echo "| Component | React Version | Vue Version |"
-            echo "|-----------|---------------|-------------|"
+            echo "| React Version | Vue Implementation |"
+            echo "|---------------|--------------------|"
             
             # First output components with Vue Version = Y
             echo "$componentsA" | while read -r component; do
               if [ -n "$component" ]; then
                 if echo "$componentsB" | grep -q "^${component}$"; then
-                  echo "| $component | Y | Y |"
+                  echo "| $component | ✅ |"
                 fi
               fi
             done
@@ -53,12 +53,10 @@ jobs:
             echo "$componentsA" | while read -r component; do
               if [ -n "$component" ]; then
                 if ! echo "$componentsB" | grep -q "^${component}$"; then
-                  echo "| $component | Y | N |"
+                  echo "| $component | ❎ |"
                 fi
               fi
             done
-            echo
-            echo "## Installation"
           } > temp_table.md
 
           # Replace content between markers in README.md
