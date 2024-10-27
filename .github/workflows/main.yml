@@ -29,24 +29,18 @@ jobs:
 
       - name: Compare Directory Names
         run: |
-          # Find all stories files in repoA
+          # Find all stories files in repoA and repoB
           componentsA=$(find repoA/src/components -type f -name "*.stories.*" | sed 's|.*/\([^/]*\)/[^/]*\.stories\..*|\1|' | sort -u)
-          echo "Components with stories in repoA:"
-          echo "$componentsA"
-
-          # Find all stories files in repoB
           componentsB=$(find repoB/src/components -type f -name "*.stories.*" | sed 's|.*/\([^/]*\)/[^/]*\.stories\..*|\1|' | sort -u)
-          echo "Components with stories in repoB:"
-          echo "$componentsB"
 
-          # Create README.md with table format
+          # Create temporary file with the new table
           {
-            echo "# Components Implementation Status"
+            echo "## Rate of progress"
             echo
             echo "| Component | React Version | Vue Version |"
             echo "|-----------|---------------|-------------|"
             
-            # First output components that exist in both repos (Vue Version = Y)
+            # First output components with Vue Version = Y
             echo "$componentsA" | while read -r component; do
               if [ -n "$component" ]; then
                 if echo "$componentsB" | grep -q "^${component}$"; then
@@ -55,7 +49,7 @@ jobs:
               fi
             done
 
-            # Then output components that only exist in repoA (Vue Version = N)
+            # Then output components with Vue Version = N
             echo "$componentsA" | while read -r component; do
               if [ -n "$component" ]; then
                 if ! echo "$componentsB" | grep -q "^${component}$"; then
@@ -63,7 +57,21 @@ jobs:
                 fi
               fi
             done
-          } > repoB/README.md
+            echo
+            echo "## Installation"
+          } > temp_table.md
+
+          # Replace content between markers in README.md
+          awk '
+            BEGIN       {p=1}
+            /^## Rate of progress$/ {system("cat temp_table.md"); p=0}
+            /^## Installation$/     {p=1}
+            p==1        {print}
+          ' repoB/README.md > new_readme.md
+
+          # Move new readme to original location
+          mv new_readme.md repoB/README.md
+          rm temp_table.md
 
       - name: Commit Changes
         run: |
