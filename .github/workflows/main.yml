@@ -53,7 +53,7 @@ jobs:
             echo "$componentsA" | while read -r component; do
               if [ -n "$component" ]; then
                 if ! echo "$componentsB" | grep -q "^${component}$"; then
-                  echo "| $component | ❎ |"
+                  echo "| $component | ⭕️ |"
                 fi
               fi
             done
