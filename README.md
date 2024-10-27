@@ -27,6 +27,10 @@ Telegram UI kit equips you with a variety of pre-designed components and tools t
 - **Playground and Storybook:** Experiment with components and visualize changes in real-time at [Playground and Storybook](https://telegram-ui-vue.vercel.app/).
 - **Figma Resources:** Design and prototype with ease using our comprehensive Figma files available at [Figma](https://figma.com/community/file/1348989725141777736/).
 
+## Rate of progress
+
+
+
 ## Installation
 
 ```sh
@@ -83,3 +87,4 @@ Contributions are welcome! To contribute, fork the repository, make your changes
 This Telegram UI Kit for Vue is available under the [MIT License](https://opensource.org/license/mit). Use it freely in both personal and commercial projects.
 
 The library is developed and maintained by [TownSquare Labs](https://github.com/TownSquareXYZ). It is based on the React version of TelegramUI developed by [XeleneStudio](https://github.com/XeleneStudio).
+
