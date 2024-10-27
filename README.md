@@ -29,8 +29,80 @@ Telegram UI kit equips you with a variety of pre-designed components and tools t
 
 ## Rate of progress
 
+| Component | React Version | Vue Version |
+|-----------|---------------|-------------|
+| Badge | Y | Y |
+| Button | Y | Y |
+| Caption | Y | Y |
+| CircularProgress | Y | Y |
+| IconButton | Y | Y |
+| Placeholder | Y | Y |
+| Spinner | Y | Y |
+| Subheadline | Y | Y |
+| Switch | Y | Y |
+| Text | Y | Y |
+| Title | Y | Y |
+| Accordion | Y | N |
+| AccordionContent | Y | N |
+| AccordionSummary | Y | N |
+| Avatar | Y | N |
+| AvatarStack | Y | N |
+| Banner | Y | N |
+| Blockquote | Y | N |
+| Breadcrumbs | Y | N |
+| ButtonCell | Y | N |
+| Card | Y | N |
+| Cell | Y | N |
+| Checkbox | Y | N |
+| Chip | Y | N |
+| ColorInput | Y | N |
+| CompactPagination | Y | N |
+| CompactPaginationItem | Y | N |
+| Divider | Y | N |
+| FileInput | Y | N |
+| FixedLayout | Y | N |
+| Headline | Y | N |
+| Image | Y | N |
+| Info | Y | N |
+| InlineButtons | Y | N |
+| InlineButtonsItem | Y | N |
+| Input | Y | N |
+| LargeTitle | Y | N |
+| List | Y | N |
+| Modal | Y | N |
+| ModalClose | Y | N |
+| ModalHeader | Y | N |
+| Multiselect | Y | N |
+| Multiselectable | Y | N |
+| Navigation | Y | N |
+| Pagination | Y | N |
+| PinInput | Y | N |
+| Popper | Y | N |
+| Progress | Y | N |
+| Radio | Y | N |
+| Rating | Y | N |
+| Section | Y | N |
+| SectionFooter | Y | N |
+| SectionHeader | Y | N |
+| SegmentedControl | Y | N |
+| SegmentedControlItem | Y | N |
+| Select | Y | N |
+| Selectable | Y | N |
+| Skeleton | Y | N |
+| Slider | Y | N |
+| Snackbar | Y | N |
+| Spoiler | Y | N |
+| Steps | Y | N |
+| Tabbar | Y | N |
+| TabbarItem | Y | N |
+| TabsItem | Y | N |
+| TabsList | Y | N |
+| Textarea | Y | N |
+| Timeline | Y | N |
+| TimelineItem | Y | N |
+| Tooltip | Y | N |
 
-
+## Installation
 ## Installation
 
 ```sh
