@@ -102,7 +102,6 @@ Telegram UI kit equips you with a variety of pre-designed components and tools t
 | TimelineItem | ❎ |
 | Tooltip | ❎ |
 ## Installation
-## Installation
 
 ```sh
 npm i @townsquarelabs/telegram-ui-vue
